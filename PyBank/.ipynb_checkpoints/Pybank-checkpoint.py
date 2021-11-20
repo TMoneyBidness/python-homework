@@ -90,4 +90,21 @@ with open(csvpath, 'r') as csvfile:
     print(f"Max Up Date {max_up_date}")
     print(f"Max Down Month ${max_down_month}")
     print(f"Max Down Date {max_down_date}")
-    
+   
+
+#Set the output header
+header = ["Total Months", "Profit & Losses", "Average delta", "Max Up Month", "Max Up Date", "Max Down Month", "Max Down Date"]
+# Create a list of metrics
+metrics = [month, total_pnl, ave_delta, max_up_month, max_up_date, max_down_month, max_down_date]
+
+# Set the output file path
+output_path = Path('output.csv')
+
+# Open the output path as a file object
+with open(output_path, 'w') as csvfile:
+    # Set the file object as a csvwriter object
+    csvwriter = csv.writer(csvfile, delimiter=',')
+    # Write the header to the output file
+    csvwriter.writerow(header)
+    # Write the list of metrics to the output file
+    csvwriter.writerow(metrics)
